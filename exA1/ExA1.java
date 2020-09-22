@@ -11,13 +11,11 @@ public class ExA1 {
 
     public static void main(String[] args) {
         ExA1 course = new ExA1();
-	course.title = "Course per default";
-	course.numberOfDays = 3;
-	course.pricePerDay = 400.0f;
-	course.priorKnowledgeRequired = false;
-	course.listOfInstructors.add("Instructor1");
-	course.listOfInstructors.add("Instructor2");
-	course.listOfInstructors.add("Instructor3");
+	if (args.length!=0) {
+	   course.title = args[0];
+	   course.numberOfDays = Integer.parseInt(args[1]);
+	   course.pricePerDay = Float.parseFloat(args[2]);
+	}
 	
         System.out.println("Course per default created");
         System.out.println("Title : "+course.title);
@@ -27,6 +25,16 @@ public class ExA1 {
         System.out.println("Number of instructors : "+ course.listOfInstructors.size());
         System.out.println("Total price : "+ course.calculateTotalPrice());
 
+    }
+
+    public ExA1() {
+	this.title = "Course per default";
+	this.numberOfDays = 3;
+	this.pricePerDay = 400.0f;
+	this.priorKnowledgeRequired = false;
+	this.listOfInstructors.add("Instructor1");
+	this.listOfInstructors.add("Instructor2");
+	this.listOfInstructors.add("Instructor3");
     }
 
     public float calculateTotalPrice() {

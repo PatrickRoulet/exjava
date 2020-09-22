@@ -7,6 +7,7 @@ public class ExA1 {
     public float pricePerDay;
     public boolean priorKnowledgeRequired;
     public List<String> listOfInstructors = new ArrayList<String>();
+    public static float VAT = 0.21f;
 
     public static void main(String[] args) {
         ExA1 course = new ExA1();
@@ -24,7 +25,12 @@ public class ExA1 {
         System.out.println("Price per day : "+ course.pricePerDay);
         System.out.println("Prior knowledge required : "+ course.priorKnowledgeRequired);
         System.out.println("Number of instructors : "+ course.listOfInstructors.size());
+        System.out.println("Total price : "+ course.calculateTotalPrice());
 
+    }
+
+    public float calculateTotalPrice() {
+	return this.numberOfDays * this.pricePerDay * (1+ExA1.VAT);
     }
 
 }

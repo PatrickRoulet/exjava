@@ -44,7 +44,7 @@ public class ExC1 {
 	   course.label = "OK";
 	}
 	
-	course.printInfo();
+	course.printInfo(course.title, course.numberOfDays, course.pricePerDay, course.priorKnowledgeRequired, course.label);
 
     }
 
@@ -69,13 +69,13 @@ public class ExC1 {
 	}
     }
 
-    public void printInfo() {
-        System.out.println("Title : "+this.title);
-        System.out.println("Number of days : "+ this.numberOfDays);
-        System.out.println("Price per day : "+ this.pricePerDay);
-        System.out.println("Prior knowledge required : "+ this.priorKnowledgeRequired);
-        System.out.println("Number of instructors : "+ this.listOfInstructors.size());
-	System.out.println("Total price : "+ this.calculateTotalPrice() + " ("+this.label+")");
+    public void printInfo(String title, int numberOfDays, double pricePerDay, boolean priorKnowledgeRequired, String label) {
+        System.out.println("Title : "+title);
+        System.out.println("Number of days : "+ numberOfDays);
+        System.out.println("Price per day : "+ pricePerDay);
+        System.out.println("Prior knowledge required : "+ priorKnowledgeRequired);
+        System.out.println("Number of instructors : "+ listOfInstructors.size());
+	System.out.println("Total price : "+ this.calculateTotalPrice() + " ("+label+")");
     }
 
 }

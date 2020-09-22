@@ -9,13 +9,17 @@ public class ExB4 {
         System.out.print("Enter a language code : ");
         String language = input.nextLine();
 	
-	if (language.equals("NL")) {
+	switch (language) {
+	case "NL":
 	   System.out.println("Goeiedag!");
-	} else if (language.equals("FR")) {
+	   break;
+	case "FR":
 	   System.out.println("Bonjour!");
-	} else if (language.equals("EN")) {
+	   break;
+	case "EN":
 	   System.out.println("Good day!");
-	} else {
+	   break;
+	default:
 	   System.out.println("Goeiedag, bonjour and good day!");
 	}
 

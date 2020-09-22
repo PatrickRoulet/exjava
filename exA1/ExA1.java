@@ -15,6 +15,16 @@ public class ExA1 {
 	   course.title = args[0];
 	   course.numberOfDays = Integer.parseInt(args[1]);
 	   course.pricePerDay = Float.parseFloat(args[2]);
+	} else {
+           Scanner input = new Scanner(System.in);
+           System.out.print("Enter the title of the course : ");
+           course.title = input.nextLine();
+           System.out.print("Enter the number of days : ");
+           String nbDays = input.nextLine();
+	   course.numberOfDays = Integer.parseInt(nbDays);
+           System.out.print("Enter the price per day : ");
+           String priceDay = input.nextLine();
+	   course.pricePerDay = Float.parseFloat(priceDay);
 	}
 	
         System.out.println("Course per default created");

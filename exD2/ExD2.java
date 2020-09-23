@@ -1,10 +1,7 @@
 
 import java.util.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.*;
 
 public class ExD2 {
     public String title;
@@ -112,7 +109,8 @@ public class ExD2 {
 	BufferedWriter bufferedWriter = null;
 	try {
 	   String currentLine;
-	   bufferedWriter = new BufferedWriter(new FileWriter("courseinfo.txt"));
+	   Path pathToFile= Paths.get("courseinfo.txt");
+	   bufferedWriter = Files.newBufferedWriter(pathToFile);
 	   bufferedWriter.write("Title : "+title+"\n");
 	   bufferedWriter.write("Number of days : "+ numberOfDays+"\n");
 	   bufferedWriter.write("Price per day : "+ pricePerDay+"\n");

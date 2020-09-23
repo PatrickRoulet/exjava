@@ -1,10 +1,10 @@
-Title : lkhhhhs
-Number of days : 10
-Price per day : 120.0
+Title : fsdfsdfds
+Number of days : 11
+Price per day : 111.0
 Prior knowledge required : true
 Number of instructors : 4
 Instructor : Sandy
 Instructor : Bruno
 Instructor : Philippe
 Instructor : Bart
-Total price : 1200.0 (OK)
+Total price : 1221.0 (OK)

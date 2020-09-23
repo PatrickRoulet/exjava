@@ -13,55 +13,44 @@ public class ExC5 {
     public static void main(String[] args) {
         ExC5 course = new ExC5();
 
-	if (args.length!=0) {
-	   course.title = args[0];
-	   course.numberOfDays = Integer.parseInt(args[1]);
-	   course.pricePerDay = Double.parseDouble(args[2]);
-	} else {
-           Scanner input = new Scanner(System.in);
-           System.out.print("Enter the title of the course : ");
-           course.title = input.nextLine();
+	try {
 
-	   boolean nbDaysIsInt = false;
-	   boolean priceDayIsDouble = false;
-
-	   while (!nbDaysIsInt || !priceDayIsDouble) {
-	      try {
-		if (!nbDaysIsInt) {
-                   System.out.print("Enter the number of days : ");
-                   String nbDays = input.nextLine();
-	           course.numberOfDays = Integer.parseInt(nbDays);
-		   nbDaysIsInt = true;
-		}
-		if (!priceDayIsDouble) {
-                   System.out.print("Enter the price per day : ");
-                   String priceDay = input.nextLine();
-	           course.pricePerDay = Double.parseDouble(priceDay);
-		   priceDayIsDouble = true;
-		}
-	      } catch (NumberFormatException except) {
-	        System.out.println("Wrong type of input, please correct");
-	      }
-	   }
-
-           System.out.print("Does the course need prior knowledge (Y/N) ? ");
-           String priorKnowledge = input.nextLine();
-	   if (priorKnowledge.equals("Y")) {
-	      course.priorKnowledgeRequired = true;
+	   if (args.length!=0) {
+	      course.title = args[0];
+	      course.numberOfDays = Integer.parseInt(args[1]);
+	      course.pricePerDay = Double.parseDouble(args[2]);
 	   } else {
-	      course.priorKnowledgeRequired = false;
+              Scanner input = new Scanner(System.in);
+              System.out.print("Enter the title of the course : ");
+              course.title = input.nextLine();
+              System.out.print("Enter the number of days : ");
+              String nbDays = input.nextLine();
+	      course.numberOfDays = Integer.parseInt(nbDays);
+              System.out.print("Enter the price per day : ");
+              String priceDay = input.nextLine();
+	      course.pricePerDay = Double.parseDouble(priceDay);
+              System.out.print("Does the course need prior knowledge (Y/N) ? ");
+              String priorKnowledge = input.nextLine();
+	      if (priorKnowledge.equals("Y")) {
+	         course.priorKnowledgeRequired = true;
+	      } else {
+	         course.priorKnowledgeRequired = false;
+	      }
+	      input.close();
+	   }	
+	   double totalPrice = course.calculateTotalPrice();
+	   if (totalPrice < 500.0) {
+	      course.label = "CHEAP";
+	   } else if (totalPrice > 1500.0) {
+	      course.label = "EXPENSIVE";
+	   } else {
+	      course.label = "OK";
 	   }
-	   input.close();
-	}	
-	double totalPrice = course.calculateTotalPrice();
-	if (totalPrice < 500.0) {
-	   course.label = "CHEAP";
-	} else if (totalPrice > 1500.0) {
-	   course.label = "EXPENSIVE";
-	} else {
-	   course.label = "OK";
+	   course.printInfo(course.title, course.numberOfDays, course.pricePerDay, course.priorKnowledgeRequired, course.label, totalPrice);
+
+	} catch (NumberFormatException except) {
+	  System.out.println("Exception catched : "+except);
 	}
-	course.printInfo(course.title, course.numberOfDays, course.pricePerDay, course.priorKnowledgeRequired, course.label, totalPrice);
 
     }
 

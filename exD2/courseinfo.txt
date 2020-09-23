@@ -1,0 +1,10 @@
+Title : lkhhhhs
+Number of days : 10
+Price per day : 120.0
+Prior knowledge required : true
+Number of instructors : 4
+Instructor : Sandy
+Instructor : Bruno
+Instructor : Philippe
+Instructor : Bart
+Total price : 1200.0 (OK)
